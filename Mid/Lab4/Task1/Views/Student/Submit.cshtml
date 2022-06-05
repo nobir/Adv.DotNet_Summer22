@@ -1,0 +1,14 @@
+﻿@model Task1.Models.Student
+@{
+    ViewBag.Title = "Submit";
+}
+
+<h2>Submit</h2>
+<ul>
+    <li>Id: @Model.Id</li>
+    <li>Name: @Model.Name</li>
+    <li>Email: @Model.Email</li>
+    <li>DOB: @Model.Dob.ToString("dd/MM/yyyy")</li>
+    <li>Department: @Model.Dept</li>
+</ul>
+
