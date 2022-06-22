@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "Create Page";
+}
+
+<div class="container">
+    <div class="row">
+        <h2>Create</h2>
+    </div>
+    <div class="row">
+        <div class="row">
+            <span class="text-success">@TempData["message"]</span>
+        </div>
+        <form action="" method="post">
+            <div class="form-group">
+                <label for="Name">Name</label>
+                <input type="text" class="form-control" id="Name" name="Name" placeholder="Enter Name" value="@(Model == null ? "" : Model.Name)">
+                <small class="form-text text-muted text-danger">@Html.ValidationMessage("Name")</small>
+            </div>
+            <div class="form-group">
+                <label for="Email">Email</label>
+                <input type="email" class="form-control" id="Email" name="Email" placeholder="Enter Email" value="@(Model == null ? "" : Model.Email)">
+                <small class="form-text text-muted text-danger">@Html.ValidationMessage("Email")</small>
+            </div>
+            <div class="form-group">
+                <label for="Password">Password</label>
+                <input type="password" class="form-control" id="Password" name="Password" placeholder="Enter Password" value="@(Model == null ? "" : Model.Password)">
+                <small class="form-text text-muted text-danger">@Html.ValidationMessage("Password")</small>
+            </div>
+            <div class="form-group">
+                <label for="Type">User Type</label>
+                <select class="form-control" id="Type" name="Type">
+                    <option value="regional_manager" @(Model != null && Model.Type == "regional_manager" ? "selected" : "")>Regional Manager</option>
+                    <option value="branch_manager" @(Model != null && Model.Type == "branch_manager" ? "selected" : "")>Branch Manager</option>
+                    <option value="employee" @(Model != null && Model.Type == "employee" ? "selected" : "")>Employee</option>
+                </select>
+                <small class="form-text text-muted text-danger">@Html.ValidationMessage("Type")</small>
+            </div>
+            <div class="form-group">
+                <label for="Salary">Salary</label>
+                <input type="text" class="form-control" id="Salary" name="Salary" placeholder="Enter Salary" value="@(Model == null ? "" : Model.Salary)">
+                <small class="form-text text-muted text-danger">@Html.ValidationMessage("Salary")</small>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
