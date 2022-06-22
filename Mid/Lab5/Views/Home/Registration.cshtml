@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Registration";
+}
+
+<h2>Registration</h2>
+
+<div>
+    <form action="" method="post">
+        <label for="name">Name: </label>
+        <input type="text" name="Name" value="" id="name" />
+        @Html.ValidationMessage("Name", "", new { @class = "text-danger" }, "span")
+        <br />
+        <label for="email">Email: </label>
+        <input type="text" name="Email" value="" id="email" />
+        @Html.ValidationMessage("Email", "", new { @class = "text-danger" }, "span")
+        <br />
+        <input type="submit" value="Submit" />
+    </form>
+</div>
