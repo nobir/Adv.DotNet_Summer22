@@ -6,16 +6,38 @@
 <h2>ViewUsers</h2>
 
 <table class="table table-bordered">
-    <tr>
-        <th>Id</th>
-        <th>Name</th>
-    </tr>
-
-    @foreach(var user in Model)
+    @if (TempData["successmsg"] != null)
     {
-    <tr>
-        <td>@user.Id</td>
-        <td>@user.Name</td>
-    </tr>
+        <div class="alert alert-success">
+            @TempData["successmsg"]
+        </div>
     }
+
+    @if (TempData["errormsg"] != null)
+    {
+        <div class="alert alert-danger">
+            @TempData["errormsg"]
+        </div>
+    }
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Id</td>
+                <td>@user.Name</td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", "Home", new { id = user.Id }, new { @class = "btn btn-success" })
+                    @Html.ActionLink("Delete", "Delete", "Home", new { id = user.Id }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>
